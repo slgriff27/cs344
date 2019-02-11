@@ -1,0 +1,41 @@
+Sarah Griffioen
+02/11/19
+CS344 Lab02
+
+EXERCISE 2.1
+
+a. Both of the algorithms solve the problem, and the hill-climbing solution works much better than the simulated annealing.
+
+b. The hill-climbing solution works more quickly than the simulated annealing solution.
+
+c. While I do not see any noticeable change in the values based on the starting value, the starting x-value would theoretically make a difference because if it happens to start closer to the local maximum value, then it will reach it faster than if it started very far away from it.
+
+d. When the delta is anything but one, it begins to find wrong numbers because it has the ability to skip over the actual maximum and report a number on either side of it. For instance, if the maximum is odd and the delta is even, then when the starting point is even, it will never land on the odd maximum number in the search. It will always skip over it and report the number above and below the real maximum instead of the maximum itself.
+
+e. The exp_schedule() method controls how much time is left before the simulated annealing function stops searching for a solution. This helps it decide if it should “take a bad move” (referring to the eight queens analogy) based on how much time is left. It probably should not take a bad move if it is really close to the end of the time because then it will provide a less accurate solution when the time is up.
+
+EXERCISE 2.2
+
+a. The hill-climbing solution seems to always come up with numbers quite close to the initial value. This happens because hill-climbing is not willing to transition to a worse state. It will either find a better state around it to transition to, or it will stay put and return the answer. Because the sine function graph goes up and down a lot, it will find the local maximum that is close to where it started, but then it won’t go anywhere after that. If it gets to that local maximum, it will look on either side, not find anything better that the current state, and stop there. Consequently, the hill-climbing solution works faster than the simulated annealing solution because it doesn’t have to do far to find one of the local maximums. The simulated annealing problem takes longer because it is willing to go to a worse state in hopes that it will find a better state after that. This means it wouldn’t stop when it found one of the local maximums because it would be willing to take a dip to find the next biggest one.
+
+b. As was mentioned before, the hill-climbing solution returns values close to the starting value since it finds the closest local maximum and stops there. The initial value seems to have little effect on the simulated annealing solution, although if there was some affect, the higher the initial number, the higher the solution x and y value. However, this is not always true. If it was a pattern, it would be because the simulated annealing function times out at a certain point, so it probably has less time to look for a solution very far away from the initial value, although it definitely looks farther than the hill-climbing solution.
+
+c. Modifying the delta seems to affect the range of results given. If the delta is increased, the resulting numbers are much higher or much lower than they are if the delta is one. Having a bigger delta increases the jump it will make to find the next state, making the resulting numbers a little larger or smaller than the previous ones.
+
+d. The maximum value is 30, and the minimum value is 0, according to the graph. The test results for both algorithms usually yielded x-values between -30 and 45 and y-values of a few less than the x-values for a delta of 1, but both the x-values and the y-values increase as the delta increases (e.g. for a delta of 15, the x-value and y-value ranges were about from -100 to 150). This is a very wide range for the correct maximum being at 30 and the correct minimum being at 0. Both programs get results that are much above the actual maximum and much below the actual minimum, which is not very good.
+
+EXERCISE 2.3
+
+a. Both algorithms tend to do slightly better since they have more chances to get a better solution. The program stores the value in a variable and compares it to the new one each time to see if it is better. If it is, then it resets the variable to the new value, but if it doesn’t, it continues to another iteration to see if it can do any better. Presumably, by the end of the random restarts, the program has gotten a better solution than it would have with only one try.
+
+b. The average for hill climbing was around 26, and the average for the simulated annealing was around 37.
+
+c. If the correct maximum is 30 for the sine function, then both algorithms do an equally good job at predicting values around that range. The simulated annealing solution tends to result in higher values than the hill climbing solution does, but they both tend to get the same amount of values around 30.
+
+EXERCISE 2.4
+
+a. The beam search makes the most sense for is the most helpful with the simulated annealing algorithm. This algorithm allows for bad choices to be made in hopes that a better state will be found after going to the bad state. The beam search will prune out the bad states at each level, so presumably, it will leave only the better ones in the search tree. The hill-climbing algorithm basically self-prunes already since it will never take a worse state than the one it is in. The beam search is not as needed in this instance as it would be for the simulated annealing algorithm. However, the beam search might work better and faster in this case since the hill-climbing solution fits the beam search better.
+
+b. You could potentially maintain as many solutions as you had space for on your disk.
+
+c. The beam search would most likely look similar to the random restarts since it takes a set of states and orders them according to a heuristic like hill-climbing or simulated annealing. Basically, what would need to change is that the different states that are produced from the random restarts would need to be saved in a data structure so that they could be retrieved later when they would be put into the search tree for the beam search. The search tree will only take a limited set, so that number could be given as the maximum for the number of random restarts. Then after it has run that limited number of times or fewer, the results will be placed in the search tree. It is only different from the random restarts version since it saves all the states and puts them into a tree later instead of storing the best state and printing that out at the end.
