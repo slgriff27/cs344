@@ -1,0 +1,32 @@
+EXERCISE 7.3
+
+a.
+
+Task #1
+
+california_housing_dataframe["rooms_per_person"] = (
+    california_housing_dataframe["total_rooms"] / california_housing_dataframe["population"])
+
+calibration_data = train_model(
+    learning_rate=0.05,
+    steps=500,
+    batch_size=5,
+    input_feature="rooms_per_person"
+)
+
+Task #2
+
+plt.figure(figsize=(15, 6))
+plt.subplot(1, 2, 1)
+plt.ylabel("targets")
+plt.xlabel("predictions")
+plt.scatter(calibration_data["predictions"], calibration_data["targets"])
+
+Task #3
+
+california_housing_dataframe["rooms_per_person"] =
+    (california_housing_dataframe["rooms_per_person"]).apply(lambda x: min(x, 5))
+
+b. Synthetic features allow you to more accurately predict a certain value by evaluating it in terms of two factors synthesized together instead of just one. For example, it is easier to see how block density relates to mean house value if both the total rooms and population were taken into account.
+
+c. Outliers are data points that are much outside the best fit line on a scatter plot, and they are usually clipped since they can skew averages and other statistical calculations.

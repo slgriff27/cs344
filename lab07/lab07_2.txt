@@ -1,0 +1,27 @@
+EXERCISE 7.2
+
+a. Categorical data is data that is described by words (categories – could sometimes be numbers treated as categoies) whereas numerical data is purely numbers (intended to be used as numbers).
+
+b. 
+
+Task #1
+
+train_model(
+    learning_rate=0.00003,
+    steps=1000,
+    batch_size=4
+)
+Final RMSE (on training data): 178.11
+
+Task #2
+
+train_model(
+    learning_rate=0.00003,
+    steps=1000,
+    batch_size=4,
+    input_feature="population"
+)
+Final RMSE (on training data): 177.27
+
+c. The hyper-parameters in this case are the learning rate, steps, batch size, and input feature. There is no “standard” tuning algorithm for these hyper-parameters since it all depends on the data.
+

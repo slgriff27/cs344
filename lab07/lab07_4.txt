@@ -1,0 +1,52 @@
+EXERCISE 7.4
+
+a.
+
+Task #1
+After taking a quick look at the data in the table, I noticed some numbers that seemed right and some that did not. For instance, it would make sense that the house median age would span between 1 and 52 and have an average of 31.3 since usually families with parents and children live in houses. It would also make sense that there would be between 0.1 and 18 rooms with an average of 2.1 rooms per person depending on how many people live in a house and how big the house is. One set of numbers that doesn’t make as much sense is the median income. The minimum is 0.5, and the maximum is 15 with an average of 4.1. This is not the amount in dollars, so there must be some other type of scale this is based on.
+
+Task #2
+The median house value data points are all higher with the validation set than with the training set with the exception of the min and max numbers, which are the same on both sets of numbers. This might explain why the scatter plot is gathered much higher on the validation graph than on the training graph. This is not the way it should be, so there must be an issue with how the training and validation data was split.
+
+Task #3
+The bug that is in the code in this case is that the data is not randomized at all before it is split into the validation and testing sections. This would be ok if the data weren’t in any particular order, but if it is ordered a certain way like it is in this dataset, then that will cause problems when there is a split in the data.
+
+Task #4
+The losses on the training and validation data were very similar relative to their starting number as is shown in the graph that was printed out. The two lines stay quite parallel to each other the whole time.
+
+linear_regressor = train_model(
+    learning_rate=0.00003,
+    steps=400,
+    batch_size=4,
+    training_examples=training_examples,
+    training_targets=training_targets,
+    validation_examples=validation_examples,
+    validation_targets=validation_targets)
+Final RMSE (on training data): 160.94
+
+Task #5
+
+california_housing_test_data = pd.read_csv("https://download.mlcc.google.com/mledu-datasets/california_housing_test.csv", sep=",")
+
+test_examples = preprocess_features(california_housing_test_data)
+test_targets = preprocess_targets(california_housing_test_data)
+
+predict_test_input_fn = lambda: my_input_fn(
+      test_examples, 
+      test_targets["median_house_value"], 
+      num_epochs=1, 
+      shuffle=False)
+
+test_predictions = linear_regressor.predict(input_fn=predict_test_input_fn)
+test_predictions = np.array([item['predictions'][0] for item in test_predictions])
+
+root_mean_squared_error = math.sqrt(
+    metrics.mean_squared_error(test_predictions, test_targets))
+
+print("Final RMSE (on test data): %0.2f" % root_mean_squared_error)
+
+Final RMSE (on test data): 161.24
+
+The test performance did slightly worse, but it was still very close (161.4 vs. 160.94). This means that the model will work on multiple datasets, and it does not become too swayed by one set of data that it cannot correctly learn from and interpret another.
+
+b. The training data comes from a sample of the dataset, and the program learns what it can from that data. It finds trends and sets itself up well to make predictions later. The validation data comes from the remaining sample of the dataset to check to make sure that the training set was an accurate representation of the data. It is important that the training and validation datasets are chosen from the original dataset in a random fashion so that they are both the most accurate representation of the whole that they can be. After the model has trained on the data and been validated, it could be that the model is skewed toward that particular dataset since it has learned from it. The testing dataset then is a way to check to make sure the model not only works on the original dataset, but it can also learn from an outside dataset (the testing dataset) and make accurate predictions based on that.
