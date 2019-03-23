@@ -1,0 +1,16 @@
+EXERCISE 7.1
+
+a.
+
+Exercise #1
+
+cities['Big Saint City'] = (cities['Area square miles'] > 50) & cities['City name'].apply(lambda name: name.startswith('San'))
+cities
+
+Exercise #2
+
+cities.reindex([7, 0, 1, 6, 2])
+
+b. Pandas can do more complicated math calculations on all or just some of the values in an entire dataset very easily. NumPy is used with Pandas, and oftentimes Pandas just feed curated data to the NumPy functions. Pandas build on the functionality of NumPy, which makes them even more useful than simply using NumPy.
+
+c. You might want to reorder data to be ordered alphabetically, numerically, or by some other column (series) in a table.
