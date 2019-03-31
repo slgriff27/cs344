@@ -1,0 +1,9 @@
+a. Seaborn is an extension of Matplotlib, and it helps make statistica data visualization easier than Matplotlib does. Working with Pandas is not as smooth with Matplotlib than it is with Seaborn. Seaborn makes this much easier since it operates on DataFrames and arrays that contain a whole dataset.
+
+b. This dataset only has 5 data points, which definitely does not seem like it is big enough for the problem. If they are trying to predict the fuel efficiency of late-1970s and early 1980s automobiles, which is a regression problem that looks at a continuous value, it would seem that there would need to be many more examples to make it more continuous and accurate data.
+
+c. The normalization helps with features that have different units of measurement and ranges. It makes it easier for the model to converge than it would if they all had different scales and ranges. In this case it takes a data point, subtracts the average from the training statistics, and divides that by the standard deviation of the training statistics.
+
+d. This is an example of a linear regression model because it takes a dataset, splits it into a training and testing set, trains on the training set, and predicts values using the testing set, which finds the best fit line for the predicted data. It assumes there is a linear relationship between X and Y (testing data and predictions).
+
+e. I think that they are not necessarily saying that smaller datasets always prefer smaller networks, but that that is an option. I think that this could work so that it does not “memorize” the small amount of data that it is given. However, I think that it would not always be the case that overfitting would occur on a larger network because it could just be doing a better job of learning from the small amount of data than memorizing the examples themselves.
