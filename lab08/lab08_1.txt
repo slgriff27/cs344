@@ -1,0 +1,51 @@
+a. It measures the linear correlation between two variables X and Y, in this case, between feature and target and between feature and other features. The features that have strong positive or negative correlations are the ones that will give the model the most information. The values that do not have as much correlation will add more “independent” data. One example would be the high positive correlation between total_bedrooms and population. If the population is higher, there is a high chance of the number of bedrooms increasing as well since everyone needs to sleep somewhere. These two variables are closely related, so they have a high positive correlation.
+
+b. 
+
+Task #1
+minimal_features = ["total_rooms", "total_bedrooms", "median_income"]
+
+assert minimal_features
+
+minimal_training_examples = training_examples[minimal_features]
+minimal_validation_examples = validation_examples[minimal_features]
+
+train_model(
+    learning_rate=0.003,
+    steps=900,
+    batch_size=4,
+    training_examples=minimal_training_examples,
+    training_targets=training_targets,
+    validation_examples=minimal_validation_examples,
+    validation_targets=validation_targets)
+
+RSME: 166.01
+
+I tried different solutions for a long time, and I couldn’t get any of them even close to Google’s solution. The numbers were all over the place and didn’t even decrease each time.
+
+Task #2
+
+def select_and_transform_features(source_df):
+  LATITUDE_RANGES = zip(range(32, 44), range(33, 45))
+  selected_examples = pd.DataFrame()
+  selected_examples["median_income"] = source_df["median_income"]
+  for r in LATITUDE_RANGES:
+    selected_examples["latitude_%d_to_%d" % r] = source_df["latitude"].apply(
+      lambda l: 1.0 if l >= r[0] and l < r[1] else 0.0)
+  return selected_examples
+
+selected_training_examples = select_and_transform_features(training_examples)
+selected_validation_examples = select_and_transform_features(validation_examples)
+
+_ = train_model(
+    learning_rate=0.02,
+    steps=700,
+    batch_size=6,
+    training_examples=selected_training_examples,
+    training_targets=training_targets,
+    validation_examples=selected_validation_examples,
+    validation_targets=validation_targets)
+
+RSME: 84.17
+
+This RSME was much better than the Google baseline of this same synthetic feature, which was 140.00.
