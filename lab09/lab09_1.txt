@@ -1,0 +1,23 @@
+Exercise 9.1
+
+a. It didn’t do a particularly good job since all the numbers are closer to 0.5 than 0 or 1. It was trying to predict a continuous value close to 0 or 1, so 0.44, which was the ending point was not ideal.
+
+b. L2 loss does not do a good job of penalizing when things are classified incorrectly. On the other hand, LogLoss does penalize the “confidence errors” a lot more than L2 loss does.
+
+c. The linear regression model ended up with 0.53, and the logistic regression ended up with 0.44. These numbers are both close to the 0.5, which is the threshold itself to determine the label, which should either be 0 or 1. Since both answers were not close to 0 or 1 at all, they both did not do well, and one is not necessarily better than the other. If anything, the logistic regression model did better since it was slightly closer to 0 than the linear regression model was to 1.
+
+d. 
+
+The AUC is better in this one, but the accuracy isn’t as good.
+learning_rate=0.000005,
+steps=500,
+batch_size=20
+AUC on the validation set: 0.73
+Accuracy on the validation set: 0.76
+
+The accuracy is better in this one, but the AUC isn’t as good.
+learning_rate=0.000004,
+steps=30000,
+batch_size=400
+AUC on the validation set: 0.78
+Accuracy on the validation set: 0.71
