@@ -1,0 +1,26 @@
+a. 
+i. 2,000 images, which is a subset of the 25,000 image “Dogs vs. Cats” dataset
+ii. The first convnet did worse than the one in class. Its accuracy ended up being 0.9810, but the one we did in class had an accuracy of about 0.9916, which is better.
+iii. It almost seems as if the learning goes in waves. It starts with a picture that is not very easy to make out, then adds a little more and a little more until you can see the outline of an animal in the picture. Then it starts over again (hence the look of waves). There are also places where there are blocks of one dark color with no picture every so often, but these only happened on the later layers.
+
+b.
+i. Data augmentation fights against overfitting. The images will be augmented, or transformed a little bit in some way, so that the model never sees the same image twice. This will help it not memorize the training examples and avoid overfitting.
+ii. 
+These are the numbers given us, and they were better than when I ran it with other numbers.
+history = model.fit_generator(
+      train_generator,
+      steps_per_epoch=100,
+      epochs=30,
+      validation_data=validation_generator,
+      validation_steps=50,
+      verbose=2)
+0.7385
+These were my numbers, that weren’t as good.
+history = model.fit_generator(
+      train_generator,
+      steps_per_epoch=200,
+      epochs=20,
+      validation_data=validation_generator,
+      validation_steps=60,
+      verbose=2)
+0.7465
