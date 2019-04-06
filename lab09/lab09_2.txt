@@ -1,0 +1,9 @@
+a. Regularizing reduces complexity and increases efficiency while not overfitting the model. It recognizes smaller parts of the model, thus making the solutions more sparse.
+
+b. L1 regularization does not remember the whole of the training data anymore. That resulted in overfitting. What it does is it finds smaller patterns in the training data and remembers those so it can recognize them later. This makes for solution vectors that are full of zeros and maybe one or two pieces of actual information. Those pieces of information are now much more valuable, and they can be recognized even in data that was not in the training dataset.
+
+c. 
+regularization_strength=0.2,
+period 06 : 0.25
+Model training finished.
+Model size: 724
