@@ -1,0 +1,40 @@
+a. Deep neural networks are usually preferred because they can do more than linear models can. However, linear models are usually faster than deep neural networks because they don’t have so many parameters to be updating, so that is a reason they would be preferred. Also, if the problem is linear, a linear model might do a better job of predicting it than a deep neural network would.
+
+b. The two models were quite similar in their results, but the deep neural network did slightly better. On the testing set for the deep neural network, the accuracy was 0.84, and the linear model’s accuracy for the testing set was .78568. Not all of the numbers from the deep neural network were better than the linear model, but more numbers were better than were not.
+
+c. Embeddings do well for tasks with sparse data, but in the case of this sentiment analysis, it didn’t make too much of a difference. The numbers were all roughly the same as the other two methods that were implemented before. However, if one-hot encoding were applied to large datasets, then embeddings could be very useful in consolidating that data, which would boost performance.
+
+d. Two words that have similar embeddings are “terrible” and “horrible.” These words have similar meanings and are both pretty common words, which explains why they would both show up a similar amount.
+
+e.
+classifier = tf.estimator.DNNClassifier(
+  feature_columns=feature_columns,
+  hidden_units=[11,10],
+  optimizer=tf.train.AdamOptimizer(learning_rate=0.009)
+)
+Training set metrics:
+loss 4.9133415
+accuracy_baseline 0.5
+global_step 1000
+recall 0.926
+auc 0.97833645
+prediction/mean 0.4869389
+precision 0.9416694
+label/mean 0.5
+average_loss 0.19653365
+auc_precision_recall 0.9777149
+accuracy 0.93432
+---
+Test set metrics:
+loss 7.5558405
+accuracy_baseline 0.5
+global_step 1000
+recall 0.85128
+auc 0.94549376
+prediction/mean 0.4751023
+precision 0.8922522
+label/mean 0.5
+average_loss 0.3022336
+auc_precision_recall 0.94249475
+accuracy 0.87424
+---
