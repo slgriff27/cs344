@@ -1,0 +1,18 @@
+a. It shows that the model was not very confused because the line down the middle contains most of the points since it is quite dark. There are very few other 	squares that are plotted elsewhere on the graph, showing that there weren’t many confusions.
+
+b. The TensorFlow architecture has many more of lines of code than the Keras example does, and it is more complicated from the user’s point of view.
+
+learning_rate=0.005,
+steps=1500,
+batch_size=50,
+hidden_units=[90, 90],
+period 09 : 2.96
+Final accuracy (on validation data): 0.91
+
+c. The model performed much better with 1000 steps than it did with 10 steps. The results for 10 steps were:
+period 09 : 23.98
+Final accuracy (on validation data): 0.31
+The results for 100 steps were:
+period 09 : 2.94
+Final accuracy (on validation data): 0.91
+The confusion matrix for the 10 steps was all over the place. It misclassified so much of the data, but the 1000 steps one was very accurate. The line was very dark down the middle with hardly any anything outside of that highlighted.
