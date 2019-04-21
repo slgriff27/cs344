@@ -1,0 +1,15 @@
+a. I think at this stage in my learning process, I would rather use Keras to build my models. Keras is built on top of Tensorflow, so it is similar, but a little different. Keras helps you build models easily with the fewest lines of code, whereas it takes longer to build a model using Tensorflow. However, Tensorflow is much better for customizing the code to do what you want. This is better for more advanced programmers than I, so Keras is a better option for me at this point.
+
+b.
+Task #1
+These were the best results I could get. It wasn’t quite below 110, but it was pretty close.
+
+learning_rate=0.003,
+steps=1300,
+batch_size=150,
+hidden_units=[11, 9],
+Final RMSE (on training data):   111.23
+Final RMSE (on validation data): 110.15
+
+Task #2
+Final RMSE (on test data): 118.45
