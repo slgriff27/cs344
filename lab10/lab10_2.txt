@@ -1,0 +1,33 @@
+a. The AdaGrad algorithm decreases the learning rate for frequent parameters and increases the learning rate for infrequent parameters. It basically lowers the effective learning rate.
+
+b.
+
+Task #1
+steps=3000,
+batch_size=60,
+hidden_units=[11, 9],
+Final RMSE (on training data):   69.64
+Final RMSE (on validation data): 68.88
+
+Task #2
+
+ADAGRAD
+steps=900,
+batch_size=300,
+hidden_units=[9, 10],
+Final RMSE (on training data):   65.78
+Final RMSE (on validation data): 65.27
+
+ADAM
+steps=600,
+batch_size=150,
+hidden_units=[9, 9],
+Final RMSE (on training data):   69.23
+Final RMSE (on validation data): 68.44
+
+Task #3
+steps=1500,
+batch_size=70,
+hidden_units=[9, 10],
+Final RMSE (on training data):   67.80
+Final RMSE (on validation data): 67.23
